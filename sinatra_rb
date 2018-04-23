@@ -1,0 +1,9 @@
+require 'sinatra'
+
+get '/' do
+  'Block!'
+end
+
+get '/mine' do
+  '<h1>you mine a block</h1>'
+end
