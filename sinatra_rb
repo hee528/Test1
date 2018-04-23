@@ -4,7 +4,7 @@ get '/' do
   'Put this in your pipe and smoke it'
 end
 
-get '/mine' do
+get '/test' do
   'you mine a block'
 end
 
