@@ -1,9 +1,10 @@
 require 'sinatra'
 
 get '/' do
-  'Block!'
+  'Put this in your pipe and smoke it'
 end
 
 get '/mine' do
-  '<h1>you mine a block</h1>'
+  'you mine a block'
 end
+
