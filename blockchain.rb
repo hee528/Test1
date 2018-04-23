@@ -6,4 +6,4 @@ end
 
 variable = Blockchain.new 
 
-puts variable
+puts variable 
