@@ -5,7 +5,21 @@ require './block'     # this calls the block file
 b = Blockchain.new    # we declared a class called 'b'
 
 get '/' do			  # get / do prints out to a local host
-	b.all_chains.to_s 
+
+	message = ""
+
+	b.all_chains.each do |a| #모든 블록들이 매번 A라는 이름으로 저장돼서 돌게 됨
+
+	message << "번호는 : " + a['index'].to_s + "<br>"  
+	message << "Nonce는 : " + a['nonce'].to_s + "<br>"
+	message << "시간은 : " + a['time'].to_s + "<br>"	
+	message << "앞 주소는 : " + a['previous_address'].to_s + "<br>"
+	message << "<hr>"
+
+	end 
+
+message 
+
 end
 
 get '/mine' do
