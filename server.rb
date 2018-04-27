@@ -1,5 +1,5 @@
 require 'sinatra'
-require '.block'
+require './block'
 
 b = Blockchain.new
 
