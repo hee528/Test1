@@ -5,7 +5,7 @@ require './block'     # this calls the block file
 b = Blockchain.new    # we declared a class called 'b'
 
 get '/' do			  # get / do prints out to a local host
-	"블럭 리스트 입니다."
+	b.all_chains.to_s 
 end
 
 get '/mine' do
