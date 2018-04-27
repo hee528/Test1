@@ -1,3 +1,4 @@
+
 class Blockchain
 
 	def mining
@@ -11,3 +12,4 @@ class Blockchain
 	end
 
 end
+
