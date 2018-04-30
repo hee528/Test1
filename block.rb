@@ -11,9 +11,14 @@ class Blockchain               # 172608
 
 	def trans(s, r, a)	# we are declaring that these three elements mandatory in a transaction!
 					  	# this references back to the b.trans line in the server.rb file
-		puts s 	 	  	# the first value will automatically be "s" (as in, sender)
-		puts r  		# the second value is automatically "r" (as in, receiver)
-		puts a   		# the third value becomes "a" (amount)
+		t = 
+		{
+			"sender" => s,
+			"receiver" => r,
+			"amount" => a
+		}
+
+		@transaction << t
 
 	end
 
@@ -42,9 +47,11 @@ class Blockchain               # 172608
     		"index" => @chain.size + 1,
     		"time" => Time.now, 			# the time it takes to mine
     		"nonce" => nonce,
-    		"previous_address" => Digest::SHA256.hexdigest(last_block.to_s)   # 앞주소는 해쉬값 
+    		"previous_address" => Digest::SHA256.hexdigest(last_block.to_s),   # 앞주소는 해쉬값 
+    		"transaction list" => @transaction
     	}				
-    							
+    		
+    	@transaction = []					
     	@chain << block			# chain이 나올때마다 block에 밀어 넣기 			
     							
 								# ruby에서의 해쉬는 암호화폐 해쉬랑 다름! 	

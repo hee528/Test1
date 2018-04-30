@@ -15,6 +15,7 @@ get '/' do			  # get / do prints out to a local host
 	message << "시간은 : " + a['time'].to_s + "<br>"	
 	message << "앞 주소는 : " + a['previous_address'].to_s + "<br>"
 	message << "내 주소는 : " + Digest::SHA256.hexdigest(a.to_s) + "<br>"	# 블럭 해쉬 값  
+	message << "거래 : " + a['transaction list'].to_s + "<br>"
 	message << "<hr>"	# horizon rule
 
 	end 
@@ -29,10 +30,9 @@ get '/mine' do
 					  # to.s changes the number '0' to text '0' (string)
 end
 
-get '/transaction' do
-
-	"보내는사람 : " + params["sender"] + "받는사람 : " + params["receiver"]
-	b.trans(params["sender"], params["receiver"], params["amount"])
+get '/transaction' do														#params is how the code communicates with web browser
+	b.trans(params["sender"], params["receiver"], params["amount"])			#this line first communicates with the URL, then with the block.rb 
+	"거래가 완료되었습니다."
 
 end
 
