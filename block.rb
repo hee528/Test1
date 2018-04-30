@@ -9,6 +9,13 @@ class Blockchain               # 172608
 		@transaction = []
 	end 
 
+	def trans(s, r, a)	# we are declaring that these three elements mandatory in a transaction!
+					  	# this references back to the b.trans line in the server.rb file
+		puts s 	 	  	# the first value will automatically be "s" (as in, sender)
+		puts r  		# the second value is automatically "r" (as in, receiver)
+		puts a   		# the third value becomes "a" (amount)
+
+	end
 
 	def mining
 

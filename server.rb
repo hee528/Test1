@@ -31,8 +31,9 @@ end
 
 get '/transaction' do
 
-	"보내는사람 : " + params["sender"]
+	"보내는사람 : " + params["sender"] + "받는사람 : " + params["receiver"]
+	b.trans(params["sender"], params["receiver"], params["amount"])
 
 end
 
-#http://localhost:4567/transaction?sender=a&receiver=bamount=1.1232
+#http://localhost:4567/transaction?sender=a&receiver=bamount=1.1232 #a is the sender's address
