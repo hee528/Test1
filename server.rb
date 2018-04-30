@@ -32,13 +32,18 @@ end
 
 get '/transaction' do														#params is how the code communicates with web browser
 	b.trans(params["sender"], params["receiver"], params["amount"])			#this line first communicates with the URL, then with the block.rb 
-	"거래가 완료되었습니다."
 
 end
 
 get '/new_wallet' do
 
 	b.make_wallet.to_s 
+
+end
+
+get '/all_wallet' do
+
+	b.show_all_wallet.to_s
 
 end
 

@@ -18,16 +18,34 @@ class Blockchain               	# 172608
 
 	end
 
-	def trans(s, r, a)	# we are declaring that these three elements mandatory in a transaction!
-					  	# this references back to the b.trans line in the server.rb file
-		t = 
-		{
-			"sender" => s,
-			"receiver" => r,
-			"amount" => a
-		}
+	def trans(s, r, a)		# we are declaring that these three elements mandatory in a transaction!
+					  		# this references back to the b.trans line in the server.rb file
+		if 
+			@wallet[s].nil?			#"nil" in RUBY, "null" elsewhere
+			"없는 지갑입니다."
+		elsif 
+			@wallet[r].nil?
+			"없는 지갑입니다."
+		elsif 
+			@wallet[s] < a
+			"잔액이 부족합니다."		#if the sender's wallet has less than amount to be wired, then bad
+		else
+				t = {
+					"sender" => s,
+					"receiver" => r,
+					"amount" => a
+				}
 
 		@transaction << t
+		"거래완료!"
+
+		end
+
+	end
+
+	def show_all_wallet
+
+		@wallet 
 
 	end
 
