@@ -36,4 +36,10 @@ get '/transaction' do														#params is how the code communicates with web
 
 end
 
+get '/new_wallet' do
+
+	b.make_wallet.to_s 
+
+end
+
 #http://localhost:4567/transaction?sender=a&receiver=bamount=1.1232 #a is the sender's address

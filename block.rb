@@ -1,13 +1,22 @@
+require 'securerandom'			#UUID(universally unique identifier를 사용하기 위한 라인)
 
-class Blockchain               # 172608
+class Blockchain               	# 172608
 
 	def initialize
 
-		@chain = []			   # 블록체인이라는 게 생기면 앞으로 이 리스트로 관리 
-							   # 골뱅이가 있으면 다른 곳에서도 사용 가능!
+		@chain = []			   	# 블록체인이라는 게 생기면 앞으로 이 리스트로 관리 
+		@transaction = []		# 골뱅이가 있으면 다른 곳에서도 사용 가능!
+		@wallet = {}			# {}을 사용하면 해쉬값, []을 사용하면 리스트로 
 
-		@transaction = []
 	end 
+
+	def make_wallet
+
+		new_wallet_address = SecureRandom.uuid 
+		@wallet[new_wallet_address] = 1000
+		@wallet
+
+	end
 
 	def trans(s, r, a)	# we are declaring that these three elements mandatory in a transaction!
 					  	# this references back to the b.trans line in the server.rb file
