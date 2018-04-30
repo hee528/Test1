@@ -24,7 +24,7 @@ class Blockchain               	# 172608
 			"없는 지갑입니다."
 		elsif @wallet[r].nil?
 			"없는 지갑입니다."
-		elsif @wallet[s].to_f < a.to_f
+		elsif @wallet[s].to_f < a.to_f		#f stands for float
 			"잔액이 부족합니다."		#if the sender's wallet has less than amount to be wired, then bad
 		else
 				t = {
@@ -33,8 +33,10 @@ class Blockchain               	# 172608
 					"amount" => a
 				}
 
-		@transaction << t
-		"거래완료!"
+				@wallet[r] = @wallet[r] + a.to_f
+				@wallet[s] = @wallet[s] - a.to_f
+				@transaction << t
+				"거래완료!"
 
 		end
 

@@ -25,24 +25,20 @@ message
 
 end
 
+
 get '/mine' do
-	b.mining.to_s     # this brings the last value of the "mining" part of the block file
-					  # to.s changes the number '0' to text '0' (string)
-end
+	b.mining.to_s     	# this brings the last value of the "mining" part of the block file
+end						# to.s changes the number '0' to text '0' (string)
 
 get '/transaction' do														#params is how the code communicates with web browser
 	b.trans(params["sender"], params["receiver"], params["amount"])			#this line first communicates with the URL, then with the block.rb 
-
 end
 
 get '/new_wallet' do
-
 	b.make_wallet.to_s 
-
 end
 
 get '/all_wallet' do
-
 	b.show_all_wallet.to_s
 
 end
