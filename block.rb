@@ -5,6 +5,8 @@ class Blockchain               # 172608
 
 		@chain = []			   # 블록체인이라는 게 생기면 앞으로 이 리스트로 관리 
 							   # 골뱅이가 있으면 다른 곳에서도 사용 가능!
+
+		@transaction = []
 	end 
 
 

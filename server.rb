@@ -6,7 +6,7 @@ b = Blockchain.new    # we declared a class called 'b'
 
 get '/' do			  # get / do prints out to a local host
 
-	message = ""
+	message = "<center>"
 
 	b.all_chains.each do |a| # 모든 블록들이 매번 A라는 이름으로 저장돼서 돌게 됨
 
@@ -19,6 +19,7 @@ get '/' do			  # get / do prints out to a local host
 
 	end 
 
+message << "</center>"
 message 
 
 end
@@ -27,3 +28,11 @@ get '/mine' do
 	b.mining.to_s     # this brings the last value of the "mining" part of the block file
 					  # to.s changes the number '0' to text '0' (string)
 end
+
+get '/transaction' do
+
+	"보내는사람 : " + params["sender"]
+
+end
+
+#http://localhost:4567/transaction?sender=a&receiver=bamount=1.1232
